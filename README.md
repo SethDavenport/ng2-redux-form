@@ -1,9 +1,8 @@
 ## ng2-redux-form
 
-[![npm version](https://img.shields.io/npm/v/ng2-redux-form.svg)](https://www.npmjs.com/package/ng2-redux-form)
-[![npm downloads](https://img.shields.io/npm/dt/ng2-redux-form.svg)](https://www.npmjs.com/package/ng2-redux-form)
+[![npm version](https://img.shields.io/npm/v/@angular-redux/form.svg)](https://www.npmjs.com/package/ng2-redux-form)
 
-This library is a thin layer of connective tissue between Angular 2 forms and
+This library is a thin layer of connective tissue between Angular 2+ forms and
 Redux. It provides unidirectional data binding between your Redux state and
 your forms elements. It builds on existing Angular functionality like
 [NgModel](https://angular.io/docs/ts/latest/api/forms/index/NgModel-directive.html)
@@ -51,7 +50,7 @@ the class that is responsible for connecting your forms to your Redux state.
 There are two ways of doing this: either using an `Redux.Store<T>` object or
 an `NgRedux<T>` object. There are no substantial differences between these
 approaches, but if you are already using
-[ng2-redux](https://github.com/angular-redux/ng2-redux) or you wish to integrate
+[@angular-redux/store](https://github.com/angular-redux/store) or you wish to integrate
 it into your project, then you would do something like this:
 
 ```typescript
@@ -70,11 +69,11 @@ it into your project, then you would do something like this:
 export class ExampleModule {}
 ```
 
-Or if you are using Redux without ng2-redux, then your bootstrap call would look
+Or if you are using Redux without `@angular-redux/store`, then your bootstrap call would look
 more like this (substitute your own store creation code):
 
 ```typescript
-import {provideReduxForms} from 'ng2-redux-form';
+import {provideReduxForms} from '@angular-redux/form';
 
 const storeCreator = compose(applyMiddleware(logger))(createStore);
 const store = create(reducers, <MyApplicationState> {});
@@ -95,7 +94,7 @@ export class ExampleModule {}
 ```
 
 The essential bit of code in the above samples is the call to `provideReduxForms(...)`.
-This configures ng2-form-redux and provides access to your Redux store or NgRedux
+This configures `@angular-redux/form` and provides access to your Redux store or NgRedux
 instance. The shape of the object that `provideReduxForms` expects is very
 basic:
 
